@@ -7,7 +7,6 @@ import linkedinDarkIcon from "../../assets/linkedin-dark.svg";
 import mailLightIcon from "../../assets/mail-light-48.png";
 import mailDarkIcon from "../../assets/mail-dark-48.png";
 import { useTheme } from "../../common/ThemeContex";
-import { useState } from "react";
 
 function Hero() {
   const { theme, toggleTheme } = useTheme();
