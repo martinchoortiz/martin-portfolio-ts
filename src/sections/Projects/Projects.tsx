@@ -1,39 +1,37 @@
+import React, { useEffect, useState } from "react";
 import styles from "./ProjectsStyles.module.css";
-import anylogic_icon from "../../assets/anylogic logo.png";
-import cplex_icon from "../../assets/cplex logo.png";
-import python_icon from "../../assets/python logo.png";
-import java_icon from "../../assets/java logo.png";
 import ProjectCard from "../../common/ProjectCard";
+import { loadProjects, Project } from "../../services/projectService";
 
 function Projects() {
+  const [projects, setProjects] = useState<Project[]>([]);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const data = await loadProjects();
+        setProjects(data);
+      } catch (error) {
+        console.error("Error loading projects:", error);
+      }
+    };
+
+    fetchProjects();
+  }, []);
+
   return (
     <section id="projects" className={styles.container}>
       <h1 className="sectionTitle">Projects</h1>
       <div className={styles.projectsContainer}>
-        <ProjectCard
-          srcImg={anylogic_icon}
-          linkRef="https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets"
-          title="Simulation APP"
-          description="Some anylogic model"
-        />
-        <ProjectCard
-          srcImg={cplex_icon}
-          linkRef="https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets"
-          title="Optimization APP"
-          description="Example optimizer model"
-        />
-        <ProjectCard
-          srcImg={python_icon}
-          linkRef="https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets"
-          title="Python application"
-          description="Some project using python"
-        />
-        <ProjectCard
-          srcImg={java_icon}
-          linkRef="https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets"
-          title="Java application"
-          description="Some of my java apps"
-        />
+        {projects.map((project, index) => (
+          <ProjectCard
+            key={index}
+            srcImg={project.IMAGES} // Si el campo IMAGES contiene una URL o ruta de imagen
+            linkRef={project.GITHUB_LINK}
+            title={project.TITLE}
+            description={project.SHORT_DESCRIPTION}
+          />
+        ))}
       </div>
     </section>
   );
