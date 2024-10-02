@@ -12,7 +12,7 @@ export interface Project {
 }
 
 export const loadProjects = async (): Promise<Project[]> => {
-  const filePath = "/src/assets/Portfolio Projects.xlsx";
+  const filePath = "/Portfolio Projects.xlsx";
   const response = await fetch(filePath);
   const arrayBuffer = await response.arrayBuffer();
   const workbook = XLSX.read(arrayBuffer, { type: "array" });
