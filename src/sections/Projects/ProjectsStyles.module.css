@@ -19,10 +19,13 @@
     transition: transform 200ms ease-in-out;
     margin: 15px;
   }
+}
 
-  a:hover {
-    transform: scale(1.05);
-  }
+.description {
+  width: 100px; /* Match the image width */
+  margin: 0 auto;
+  text-align: justify;
+  font-size: xx-large; /* Example font size */
 }
 
 .projectsContainer {

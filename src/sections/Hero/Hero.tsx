@@ -26,11 +26,7 @@ function Hero() {
         />
       </div>
       <div className={styles.info}>
-        <h1>
-          Martin
-          <br />
-          Ortiz
-        </h1>
+        <h1>Martin Ortiz</h1>
         <h2>
           {" "}
           Industrial Engineer and

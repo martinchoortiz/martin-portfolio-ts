@@ -1,0 +1,15 @@
+/* src/common/ProjectCard.module.css */
+.hover {
+  transition: transform 200ms ease-in-out;
+  /* transform: scale(1.05); */
+}
+
+.title {
+  width: 400px;
+}
+
+.description {
+  width: 400px;
+  margin: 0 auto;
+  justify-content: center;
+}

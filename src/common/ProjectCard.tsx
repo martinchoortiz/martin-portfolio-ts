@@ -1,3 +1,5 @@
+import styles from "./ProjectCard.module.css";
+
 interface ProjectCardProps {
   title: string;
   description: string;
@@ -8,9 +10,9 @@ interface ProjectCardProps {
 function ProjectCard(props: ProjectCardProps) {
   return (
     <a href={props.linkRef} target="_blank">
-      <img className="hover" src={props.srcImg} alt={props.title} />
-      <h3>{props.title}</h3>
-      <p>{props.description}</p>
+      <img className={styles.hover} src={props.srcImg} alt={props.title} />
+      <h3 className={styles.title}>{props.title}</h3>
+      <p className={styles.description}> {props.description}</p>
     </a>
   );
 }
