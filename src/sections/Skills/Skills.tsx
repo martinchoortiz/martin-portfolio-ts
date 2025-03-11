@@ -10,7 +10,6 @@ function Skills() {
         <SkillList skillName="Engineering" srcImg={checkMarkIcon} />
         <SkillList skillName="Optimization" srcImg={checkMarkIcon} />
         <SkillList skillName="Simulation" srcImg={checkMarkIcon} />
-        <SkillList skillName="Optimization" srcImg={checkMarkIcon} />
         <SkillList skillName="Problem Solving" srcImg={checkMarkIcon} />
         <SkillList skillName="TeamWork" srcImg={checkMarkIcon} />
         <SkillList skillName="Software Development" srcImg={checkMarkIcon} />
