@@ -5,6 +5,7 @@ import { loadProjects, Project } from "../../services/projectService";
 
 function Projects() {
   const [projects, setProjects] = useState<Project[]>([]);
+  const [flippedIndex, setFlippedIndex] = useState<number | null>(null);
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -19,17 +20,28 @@ function Projects() {
     fetchProjects();
   }, []);
 
+  const handleCardClick = (index: number) => {
+    setFlippedIndex((prevIndex) => (prevIndex === index ? null : index));
+  };
+
   return (
-    <section id="projects" className={styles.container}>
+    <section
+      id="projects"
+      className={styles.container}
+      onClick={() => setFlippedIndex(null)}
+    >
       <h1 className="sectionTitle">Projects</h1>
       <div className={styles.projectsContainer}>
         {projects.map((project, index) => (
           <ProjectCard
             key={index}
-            srcImg={project.IMAGES} // Si el campo IMAGES contiene una URL o ruta de imagen
+            srcImg={project.IMAGES}
             linkRef={project.GITHUB_LINK}
             title={project.TITLE}
-            description={project.SHORT_DESCRIPTION}
+            shortDescription={project.SHORT_DESCRIPTION}
+            fullDescription={project.FULL_DESCRIPTION}
+            isFlipped={flippedIndex === index}
+            onCardClick={() => handleCardClick(index)}
           />
         ))}
       </div>

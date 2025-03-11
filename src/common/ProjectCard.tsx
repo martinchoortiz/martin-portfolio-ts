@@ -1,19 +1,44 @@
+import { useState } from "react";
 import styles from "./ProjectCard.module.css";
 
 interface ProjectCardProps {
   title: string;
-  description: string;
+  shortDescription: string;
+  fullDescription: string;
   srcImg: string;
-  linkRef: string;
+  isFlipped: boolean;
+  onCardClick: () => void;
 }
 
-function ProjectCard(props: ProjectCardProps) {
+function ProjectCard({
+  title,
+  shortDescription,
+  fullDescription,
+  srcImg,
+  isFlipped,
+  onCardClick,
+}: ProjectCardProps) {
   return (
-    <a href={props.linkRef} target="_blank">
-      <img className={styles.hover} src={props.srcImg} alt={props.title} />
-      <h3 className={styles.title}>{props.title}</h3>
-      <p className={styles.description}> {props.description}</p>
-    </a>
+    <div
+      className={styles.cardContainer}
+      onClick={(e) => {
+        e.stopPropagation();
+        onCardClick();
+      }}
+    >
+      <div className={`${styles.card} ${isFlipped ? styles.flipped : ""}`}>
+        {/* Frente */}
+        <div className={styles.front}>
+          <img className={styles.image} src={srcImg} alt={title} />
+          <h3 className={styles.title}>{title}</h3>
+          <p className={styles.description}>{shortDescription}</p>
+        </div>
+        {/* Dorso */}
+        <div className={styles.back}>
+          <p className={styles.fullDescription}>{fullDescription}</p>
+        </div>
+      </div>
+    </div>
   );
 }
 

@@ -21,25 +21,16 @@
   }
 }
 
-.description {
-  width: 100px; /* Match the image width */
-  margin: 0 auto;
-  text-align: justify;
-  font-size: xx-large; /* Example font size */
-}
-
 .projectsContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 30 px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  justify-items: center;
+  padding: 0 15px;
 }
 
 @media (width >= 800px) {
   .projectsContainer {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    padding: 0 30px;
+    grid-template-columns: repeat(2, 1fr);
   }
 }

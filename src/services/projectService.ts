@@ -4,6 +4,7 @@ export interface Project {
   LANGUAGE: string;
   TITLE: string;
   SHORT_DESCRIPTION: string;
+  FULL_DESCRIPTION: string;
   SCOPE: string;
   CATEGORIES: string;
   INFO_LINKS: string;
