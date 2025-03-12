@@ -45,8 +45,14 @@
 }
 
 .fullDescription {
-  max-height: 340px; /* 400px - 2*20px de padding */
   word-break: break-word; /* Evita desbordamiento horizontal */
   padding: 5px;
   box-sizing: border-box;
+}
+
+@media (width < 800px) {
+  .card {
+    width: 400px;
+    height: 450px;
+  }
 }
