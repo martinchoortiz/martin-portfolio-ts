@@ -52,8 +52,18 @@ button {
   margin: auto;
 }
 
+/* Estilo cuando el mouse está sobre el botón */
 button:hover {
   transform: scale(1.05);
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilo cuando el botón está enfocado (al presionar Tab) */
+button:focus {
+  outline: 2px solid #000; /* Borde para indicar foco */
+  outline-offset: 2px; /* Espacio entre el borde y el botón */
+  transform: scale(1.05); /* Efecto de escala */
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
 }
 
 button:active {

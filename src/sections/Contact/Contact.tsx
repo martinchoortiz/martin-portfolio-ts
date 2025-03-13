@@ -6,25 +6,25 @@ function Contact() {
       <h1 className="sectionTitle">Contact</h1>
       <form action="https://formspree.io/f/xnnqddno" method="POST">
         <div className="formGroup">
-          <label htmlFor="name" hidden tabIndex={1}>
+          <label htmlFor="name" hidden>
             Name
           </label>
           <input
             className="show-caret"
             type="text"
-            name="name"
-            id="name"
-            placeholder="Name"
+            name="full_name"
+            id="full_name"
+            placeholder="Full Name"
             required
           />
         </div>
         <div className="formGroup">
-          <label htmlFor="email" hidden tabIndex={2}>
+          <label htmlFor="email" hidden>
             Email
           </label>
           <input
             className="show-caret"
-            type="text"
+            type="email"
             name="email"
             id="email"
             placeholder="Email"
@@ -32,7 +32,21 @@ function Contact() {
           />
         </div>
         <div className="formGroup">
-          <label htmlFor="message" hidden tabIndex={3}>
+          <label htmlFor="phone" hidden>
+            Phone
+          </label>
+          <input
+            className="show-caret"
+            type="tel"
+            name="phone"
+            id="phone"
+            placeholder="Phone"
+            pattern="^\+?[0-9]*$"
+            title="Phone number should only contain numbers and an optional leading +"
+          />
+        </div>
+        <div className="formGroup">
+          <label htmlFor="message" hidden>
             Message
           </label>
           <textarea
@@ -43,7 +57,7 @@ function Contact() {
             required
           ></textarea>
         </div>
-        <button className="hover" tabIndex={4}>
+        <button type="submit" className="hover">
           Submit
         </button>
       </form>
