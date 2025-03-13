@@ -15,7 +15,7 @@ function Hero() {
   const mailIcon = theme === "light" ? mailLightIcon : mailDarkIcon;
 
   return (
-    <section id="hero" className={styles.container}>
+    <section id="hero" className={styles.container} tabIndex={-1}>
       <div className={styles.colorModeContainer}>
         <img className={styles.hero} src={martin_image} alt="Profile picture" />
         <img

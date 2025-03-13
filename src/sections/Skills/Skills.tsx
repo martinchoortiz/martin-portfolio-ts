@@ -10,7 +10,7 @@ function Skills() {
     theme === "light" ? checkMarkLightIcon : checkMarkDarkIcon;
 
   return (
-    <section id="skills" className={styles.container}>
+    <section id="skills" className={styles.container} tabIndex={-1}>
       <h1 className="sectionTitle">Skills</h1>
       <div className={styles.skillList}>
         <SkillList skillName="Engineering" srcImg={checkMarkIcon} />

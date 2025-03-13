@@ -6,10 +6,11 @@ function Contact() {
       <h1 className="sectionTitle">Contact</h1>
       <form action="https://formspree.io/f/xnnqddno" method="POST">
         <div className="formGroup">
-          <label htmlFor="name" hidden>
+          <label htmlFor="name" hidden tabIndex={1}>
             Name
           </label>
           <input
+            className="show-caret"
             type="text"
             name="name"
             id="name"
@@ -18,10 +19,11 @@ function Contact() {
           />
         </div>
         <div className="formGroup">
-          <label htmlFor="email" hidden>
+          <label htmlFor="email" hidden tabIndex={2}>
             Email
           </label>
           <input
+            className="show-caret"
             type="text"
             name="email"
             id="email"
@@ -30,17 +32,20 @@ function Contact() {
           />
         </div>
         <div className="formGroup">
-          <label htmlFor="message" hidden>
+          <label htmlFor="message" hidden tabIndex={3}>
             Message
           </label>
           <textarea
+            className="show-caret"
             name="message"
             id="message"
             placeholder="Message"
             required
           ></textarea>
         </div>
-        <button className="hover">Submit</button>
+        <button className="hover" tabIndex={4}>
+          Submit
+        </button>
       </form>
     </section>
   );

@@ -74,6 +74,16 @@ p {
   cursor: pointer;
 }
 
+*:focus {
+  outline: none !important;
+  caret-color: transparent;
+}
+
+/* Clase para mostrar el cursor parpadeante en elementos específicos */
+.show-caret {
+  caret-color: auto !important; /* Sobrescribe el valor predeterminado */
+}
+
 @media (width >= 800px) {
   #root {
     gap: 100px;
