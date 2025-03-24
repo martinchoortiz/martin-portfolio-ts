@@ -46,7 +46,7 @@ function Hero() {
           forward to generating value by designing and applying digital tools.
         </p>
         <a
-          href="https://1drv.ms/b/s!Apl8nX-baR6rhaUi54ZEd1CFtijNog?e=DvY4Wi"
+          href="https://drive.google.com/file/d/1qV24w2rBVQcigGFHHxxECq89kdSBdVqj/view?usp=sharing"
           target="_blank"
         >
           <button className="hover">Resume</button>
