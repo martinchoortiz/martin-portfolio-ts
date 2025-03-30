@@ -45,9 +45,15 @@
 }
 
 .fullDescription {
+  white-space: pre-line;
+  text-align: justify;
   word-break: break-word; /* Evita desbordamiento horizontal */
-  padding: 5px;
+  padding: 20px;
   box-sizing: border-box;
+}
+
+.fullDescription p:not(:last-child) {
+  margin-bottom: 15px; /* Agrega espacio entre los párrafos */
 }
 
 .title,

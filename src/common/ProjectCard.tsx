@@ -35,7 +35,11 @@ function ProjectCard({
         </div>
         {/* Dorso */}
         <div className={styles.back}>
-          <p className={styles.fullDescription}>{fullDescription}</p>
+          <div className={styles.fullDescription}>
+            {fullDescription.split("\n").map((line, index) => (
+              <p key={index}>{line}</p>
+            ))}
+          </div>
         </div>
       </div>
     </div>
