@@ -2,16 +2,19 @@ import styles from "./SkillsStyles.module.css";
 import checkMarkDarkIcon from "../../assets/checkmark-dark.svg";
 import checkMarkLightIcon from "../../assets/checkmark-light.svg";
 import SkillList from "../../common/SkillList";
+import DividerWithTitle from "./DividerWithTitle"; // <<--- Import nuevo
 import { useTheme } from "../../common/ThemeContex";
 
 function Skills() {
-  const { theme, toggleTheme } = useTheme();
+  const { theme } = useTheme();
   const checkMarkIcon =
     theme === "light" ? checkMarkLightIcon : checkMarkDarkIcon;
 
   return (
     <section id="skills" className={styles.container} tabIndex={-1}>
       <h1 className="sectionTitle">Skills</h1>
+
+      <DividerWithTitle title="Core Skills" />
       <div className={styles.skillList}>
         <SkillList skillName="Engineering" srcImg={checkMarkIcon} />
         <SkillList skillName="Data Science" srcImg={checkMarkIcon} />
@@ -20,7 +23,8 @@ function Skills() {
         <SkillList skillName="Automation" srcImg={checkMarkIcon} />
         <SkillList skillName="Supply Chain" srcImg={checkMarkIcon} />
       </div>
-      <hr className={styles.hr} />
+
+      <DividerWithTitle title="Soft Skills" />
       <div className={styles.skillList}>
         <SkillList skillName="Problem Solving" srcImg={checkMarkIcon} />
         <SkillList skillName="Team Work" srcImg={checkMarkIcon} />
@@ -38,14 +42,15 @@ function Skills() {
         />
         <SkillList skillName="Communication" srcImg={checkMarkIcon} />
       </div>
-      <hr className={styles.hr} />
+
+      <DividerWithTitle title="Tech Skills" />
       <div className={styles.skillList}>
         <SkillList skillName="Java" srcImg={checkMarkIcon} />
         <SkillList skillName="Python" srcImg={checkMarkIcon} />
         <SkillList skillName="SQL" srcImg={checkMarkIcon} />
         <SkillList skillName="JavaScript" srcImg={checkMarkIcon} />
         <SkillList skillName="Git/GitHub" srcImg={checkMarkIcon} />
-        <SkillList skillName="Anylogic" srcImg={checkMarkIcon} />
+        <SkillList skillName="AnyLogic" srcImg={checkMarkIcon} />
         <SkillList skillName="UiPath RPA" srcImg={checkMarkIcon} />
         <SkillList skillName="PowerBI" srcImg={checkMarkIcon} />
         <SkillList

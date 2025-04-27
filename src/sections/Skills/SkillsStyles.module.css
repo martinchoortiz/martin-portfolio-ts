@@ -16,7 +16,7 @@
 
 .skillList {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-self: center;
   flex-wrap: wrap;
   gap: 20px;
@@ -26,14 +26,6 @@
   padding-right: 40px;
 }
 
-hr {
-  width: 100px;
-  height: 1px;
-  border: none;
-  background-color: var(--text-color);
-  margin: 30px auto;
-}
-
 @media (width >= 800px) {
   .skillList {
     max-width: fit-content;
@@ -41,8 +33,5 @@ hr {
     p {
       font-size: 20px;
     }
-  }
-  hr {
-    width: 300px;
   }
 }

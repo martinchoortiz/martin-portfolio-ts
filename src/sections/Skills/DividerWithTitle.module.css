@@ -1,0 +1,31 @@
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30px 0;
+  gap: 20px;
+}
+
+.divider:first-of-type {
+  margin-top: -30px;
+}
+
+.line {
+  width: 300px;
+  height: 1px;
+  border: none;
+  background-color: var(--text-color);
+}
+
+.text {
+  font-size: 24px;
+  font-weight: bold;
+  white-space: nowrap;
+  color: var(--text-color);
+}
+
+@media (width < 800px) {
+  .line {
+    width: 100px;
+  }
+}
