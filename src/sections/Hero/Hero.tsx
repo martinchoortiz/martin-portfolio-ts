@@ -45,12 +45,6 @@ function Hero() {
           Passionate about technology and process improvement, I always look
           forward to generating value by designing and applying digital tools.
         </p>
-        <a
-          href="https://drive.google.com/file/d/1qV24w2rBVQcigGFHHxxECq89kdSBdVqj/view?usp=sharing"
-          target="_blank"
-        >
-          <button className="hover">Resume</button>
-        </a>
       </div>
     </section>
   );

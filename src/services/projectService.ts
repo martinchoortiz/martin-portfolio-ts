@@ -12,13 +12,30 @@ export interface Project {
   IMAGES: string;
 }
 
+const asText = (value: unknown) => (value == null ? "" : String(value).trim());
+
 export const loadProjects = async (): Promise<Project[]> => {
-  const filePath = "/Portfolio Projects.xlsx";
-  const response = await fetch(filePath);
+  const response = await fetch("/Portfolio Projects.xlsx");
   const arrayBuffer = await response.arrayBuffer();
   const workbook = XLSX.read(arrayBuffer, { type: "array" });
   const sheetName = workbook.SheetNames[0];
   const worksheet = workbook.Sheets[sheetName];
-  const data: Project[] = XLSX.utils.sheet_to_json(worksheet, { raw: true });
-  return data;
+  const rows = XLSX.utils.sheet_to_json<Record<string, unknown>>(worksheet, {
+    raw: false,
+    defval: "",
+  });
+
+  return rows
+    .map((row) => ({
+      LANGUAGE: asText(row.LANGUAGE),
+      TITLE: asText(row.TITLE),
+      SHORT_DESCRIPTION: asText(row.SHORT_DESCRIPTION),
+      FULL_DESCRIPTION: asText(row.FULL_DESCRIPTION),
+      SCOPE: asText(row.SCOPE),
+      CATEGORIES: asText(row.CATEGORIES),
+      INFO_LINKS: asText(row.INFO_LINKS),
+      GITHUB_LINK: asText(row.GITHUB_LINK),
+      IMAGES: asText(row.IMAGES),
+    }))
+    .filter((project) => project.TITLE.length > 0);
 };

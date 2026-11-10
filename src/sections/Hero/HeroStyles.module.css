@@ -1,106 +1,100 @@
 .container {
-  --hero-max-width: 200px;
+  --hero-max-width: 220px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 20px;
+  gap: 28px;
   text-align: center;
-  height: 100dvh;
-  min-height: 500px;
+  min-height: calc(100dvh - 88px);
   align-items: center;
-  /* margin-top: 0; Ensures it starts at the top */
+}
 
-  .hero {
-    max-width: var(--hero-max-width);
-    border-radius: 100%;
-  }
-
-  span {
-    display: flex;
-    gap: 25px;
-    justify-content: center;
-
-    a {
-      margin: 0;
-
-      img {
-        width: 30px;
-      }
-    }
-  }
-
-  a {
-    width: fit-content;
-    align-self: center;
-  }
-
-  button {
-    background-color: var(--btn-color);
-    color: var(--btn-text-color);
-    border: none;
-    border-radius: 20px;
-    width: 126px;
-    height: 45px;
-    font-size: 20px;
-    font-weight: bold;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    transition: box-shadow 200ms ease-in-out, transform 200ms ease-in-out;
-  }
-
-  button:hover {
-    transform: scale(1.05);
-  }
-
-  button:active {
-    transform: translateY(2px);
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
-  }
+.hero {
+  width: 100%;
+  max-width: var(--hero-max-width);
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: var(--shadow);
 }
 
 .colorModeContainer {
   position: relative;
-  max-width: var(--hero-max-width);
+  width: min(100%, var(--hero-max-width));
 }
 
 .colorMode {
   position: absolute;
-  right: 0;
-  width: 25px;
+  right: 4px;
+  bottom: 8px;
+  width: 42px;
+  height: 42px;
+  padding: 8px;
+  border-radius: 50%;
+  background: var(--surface-color);
+  border: 1px solid var(--line-color);
+  box-shadow: var(--shadow);
 }
 
 .colorMode:hover {
   cursor: pointer;
 }
 
-.description {
-  max-width: 35ch;
-  margin: 0 auto;
-}
-
 .info {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
   align-items: center;
+}
+
+.info h2 {
+  color: var(--text-muted);
+  font-weight: 500;
+  text-wrap: balance;
+}
+
+.info span {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+}
+
+.info a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--surface-color);
+  border: 1px solid var(--line-color);
+}
+
+.info img {
+  width: 22px;
+  height: 22px;
+}
+
+.description {
+  max-width: 46ch;
+  color: var(--text-muted);
 }
 
 @media (width >= 800px) {
   .container {
-    --hero-max-width: 350px;
+    --hero-max-width: 320px;
     flex-direction: row-reverse;
     align-items: center;
-    justify-content: space-evenly;
-    /* padding-top: 10dvh; */
-    .hero {
-      width: var(--hero-max-width);
-    }
+    justify-content: space-between;
+    text-align: left;
+    gap: 48px;
   }
-}
 
-@media (width >= 1400px) {
-  .container {
-    .hero {
-      width: var(--hero-max-width);
-    }
+  .info {
+    align-items: flex-start;
+  }
+
+  .info span {
+    justify-content: flex-start;
   }
 }

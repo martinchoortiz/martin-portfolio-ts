@@ -1,34 +1,67 @@
 :root {
-  --background-color: #fff;
-  --btn-color: #c0b7ac;
-  --btn-txt-color: #fff;
-  --project-card-bg: #ffffff00;
-  --text-color: #222;
-  --form-text-color: #555;
-  --footer-text-color: #888;
+  --background-color: #f4f1eb;
+  --surface-color: #fffcf8;
+  --surface-muted: #efeae3;
+  --text-color: #1c1917;
+  --text-muted: #57534e;
+  --accent: #0f6e6b;
+  --accent-soft: rgba(15, 110, 107, 0.12);
+  --line-color: rgba(28, 25, 23, 0.12);
+  --shadow: 0 16px 40px rgba(40, 32, 24, 0.08);
+  --btn-color: #0f6e6b;
+  --btn-text-color: #fff;
+  --form-text-color: #1c1917;
+  --footer-text-color: #78716c;
+  --radius: 20px;
+  --page-width: 1120px;
 }
 
 [data-theme="dark"] {
-  --background-color: #222;
-  --btn-color: #fff;
-  --btn-txt-color: #222;
-  --project-card-bg: #fff;
-  --text-color: #fff;
-  --form-text-color: #fff;
-  --footer-text-color: #bbb;
+  --background-color: #121417;
+  --surface-color: #1b2027;
+  --surface-muted: #242b34;
+  --text-color: #f5f1ea;
+  --text-muted: #c4bdb3;
+  --accent: #7dcec8;
+  --accent-soft: rgba(125, 206, 200, 0.14);
+  --line-color: rgba(245, 241, 234, 0.12);
+  --shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+  --btn-color: #7dcec8;
+  --btn-text-color: #10201f;
+  --form-text-color: #f5f1ea;
+  --footer-text-color: #a8a29e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background-color: var(--background-color);
-  display: flex;
-  justify-content: center;
-  margin: 0 auto 60px;
+  margin: 0;
+  background:
+    radial-gradient(circle at top, rgba(15, 110, 107, 0.08), transparent 32%),
+    var(--background-color);
+  color: var(--text-color);
+  font-family: "Source Sans 3", sans-serif;
+}
+
+[data-theme="dark"] body {
+  background:
+    radial-gradient(circle at top, rgba(125, 206, 200, 0.08), transparent 28%),
+    var(--background-color);
 }
 
 #root {
+  width: min(var(--page-width), calc(100% - 32px));
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 60px;
+  gap: 72px;
+  padding-bottom: 72px;
 }
 
 h1,
@@ -37,82 +70,102 @@ h3,
 p {
   color: var(--text-color);
   margin: 0;
-  padding: 0;
-}
-
-h2,
-h3,
-p {
-  font-family: "Roboto Mono", monospace;
 }
 
 h1,
-h2 {
-  text-transform: uppercase;
-}
-
 h2,
 h3 {
-  font-size: 20px;
+  font-family: "Outfit", sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
 }
 
 h1 {
-  font-family: "Rubik", sans-serif;
-  font-size: 32px;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+}
+
+h2 {
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.25rem;
 }
 
 p {
-  font-size: 16px;
-  font-weight: 300;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  font-weight: 400;
 }
 
 .sectionTitle {
-  margin-bottom: 30px;
+  margin-bottom: 12px;
+}
+
+.sectionLead {
+  max-width: 62ch;
+  margin: 0 auto 28px;
+  color: var(--text-muted);
+}
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin: 0 -8px;
+  padding: 14px 8px;
+  background: color-mix(in srgb, var(--background-color) 88%, transparent);
+  backdrop-filter: blur(14px);
+}
+
+.nav a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.navLinks {
+  display: flex;
+  gap: 18px;
+}
+
+.navLinks a {
+  color: var(--text-muted);
+  font-size: 0.98rem;
+}
+
+.navLinks a:hover {
+  color: var(--accent);
 }
 
 .hover {
   cursor: pointer;
 }
 
-*:focus:not(button) {
-  outline: none !important;
-  caret-color: transparent;
+*:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
-/* Clase para mostrar el cursor parpadeante en elementos específicos */
 .show-caret {
-  caret-color: auto !important; /* Sobrescribe el valor predeterminado */
+  caret-color: auto;
 }
 
-@media (width >= 800px) {
+@media (width < 700px) {
   #root {
-    gap: 100px;
-  }
-  h1 {
-    font-size: 40px;
-  }
-  h2,
-  h3 {
-    font-size: 24px;
-  }
-  p {
-    font-size: 20px;
+    width: min(var(--page-width), calc(100% - 20px));
+    gap: 56px;
   }
 
-  .sectionTitle {
-    margin-bottom: 60px;
-  }
-
-  @media (width >= 1400px) {
-    #root {
-      gap: 200px;
-    }
-    h1 {
-      font-size: 48px;
-    }
-
-    .sectionTitle {
-      margin-bottom: 75px;
-    }
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
   }
 }
