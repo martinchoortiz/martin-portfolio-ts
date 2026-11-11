@@ -1,6 +1,7 @@
 import * as XLSX from "xlsx";
 
 export interface Project {
+  ORDER: number;
   LANGUAGE: string;
   TITLE: string;
   SHORT_DESCRIPTION: string;
@@ -13,6 +14,13 @@ export interface Project {
 }
 
 const asText = (value: unknown) => (value == null ? "" : String(value).trim());
+
+const asOrder = (value: unknown) => {
+  const text = asText(value);
+  const order = Number(text);
+
+  return text && Number.isFinite(order) ? order : Number.MAX_SAFE_INTEGER;
+};
 
 export const loadProjects = async (): Promise<Project[]> => {
   const response = await fetch("/Portfolio Projects.xlsx");
@@ -27,6 +35,7 @@ export const loadProjects = async (): Promise<Project[]> => {
 
   return rows
     .map((row) => ({
+      ORDER: asOrder(row.ORDER),
       LANGUAGE: asText(row.LANGUAGE),
       TITLE: asText(row.TITLE),
       SHORT_DESCRIPTION: asText(row.SHORT_DESCRIPTION),
@@ -37,5 +46,6 @@ export const loadProjects = async (): Promise<Project[]> => {
       GITHUB_LINK: asText(row.GITHUB_LINK),
       IMAGES: asText(row.IMAGES),
     }))
-    .filter((project) => project.TITLE.length > 0);
+    .filter((project) => project.TITLE.length > 0)
+    .sort((a, b) => b.ORDER - a.ORDER);
 };
